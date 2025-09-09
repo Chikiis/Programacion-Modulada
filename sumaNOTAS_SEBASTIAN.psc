@@ -1,0 +1,32 @@
+Algoritmo sumaNOTAS
+	Definir nota, suma, promedio Como Real
+	Definir contador Como Entero
+	Definir continuar Como Caracter
+	
+	suma <- 0;
+	contador <- 0;
+	
+	Repetir
+		Escribir "Por favor ingrese la nota de su examen:";
+		Leer nota;
+		
+		suma <- suma + nota;
+		contador <- contador + 1;
+		
+		Escribir "¿Deseas ingresar otra nota? (Si/No)";
+		Leer continuar;
+	Hasta Que continuar = "No" o continuar = "no";
+	
+	Si contador > 0 Entonces
+		promedio <- suma / contador;
+		Escribir "Su promedio total de notas es: ", promedio;
+		
+		Si promedio >= 3.0 Entonces
+			Escribir "¡Aprobado!";
+		Sino
+			Escribir "Reprobado.";
+		FinSi
+	Sino
+		Escribir "No se ingresaron notas.";
+	FinSi
+FinAlgoritmo
