@@ -1,14 +1,38 @@
 Algoritmo sensorTemperatura
-	Definir temperatura_Actual Como Real
+    Definir temperatura_Actual Como Real
 	
-	Escribir "la temperatura actual es: "
-	Leer temperatura_Actual
+	// Leer y validar la temperatura usando las funciones
 	Repetir
-		Escribir "==========================================="
-		Escribir "��ALERTA!! La temperatura no se encuentra dentro del rango"
-		Escribir "Por favor...Valide que la temperuta sea la adecuada"
-		Leer temperatura_Actual
-		Escribir "==========================================="
-	Hasta Que temperatura_Actual >= (18) y temperatura_Actual <= (32
-	Escribir "La temperatura ", temperatura_Actual, " est� dentro del rango permitido."
+		temperatura_Actual <- LeerTemperatura()
+		Si No ValidarRango(temperatura_Actual) Entonces
+			MostrarAlerta()
+		FinSi
+	Hasta Que ValidarRango(temperatura_Actual)
+	
+	Escribir "La temperatura ", temperatura_Actual, " está dentro del rango permitido."
 FinAlgoritmo
+
+// *** FUNCIONES ***
+
+// 1. Función para Leer Temperatura
+Funcion LeerTemperatura()
+    Definir temperatura Como Real
+    Escribir "Ingrese la temperatura actual:"
+    Leer temperatura
+    LeerTemperatura <- temperatura 
+FinFuncion
+
+// 2. Función para Validar Rango
+Funcion ValidarRango(temperatura)
+    Definir enRango Como Logico
+    enRango <- (temperatura >= 18) Y (temperatura <= 32)
+    ValidarRango <- enRango 
+FinFuncion
+
+// 3. Función para Mostrar Alerta
+Funcion MostrarAlerta()
+    Escribir "==========================================="
+    Escribir "¡¡ALERTA!! La temperatura no se encuentra dentro del rango."
+    Escribir "Por favor...valide que la temperatura sea la adecuada."
+    Escribir "==========================================="
+FinFuncion
